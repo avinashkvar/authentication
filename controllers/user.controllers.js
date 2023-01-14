@@ -9,8 +9,8 @@ function generateToken(user){
     if(user.password){
         delete user.password;
     }
-
-    return jwt.sign(user, process.env.JWT_SECRET);
+    
+    return jwt.sign(user, "authication_secret");
 }
 
 async function getAlluser(){
