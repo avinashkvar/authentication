@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const { register, login } = require('../controllers/user.controllers');
+const { register, login, getAlluser } = require('../controllers/user.controllers');
 const userRouter = express.Router();
 
 userRouter.get('/user/loginUser', (req, res) => {
@@ -44,6 +44,15 @@ userRouter.post('/user/register', async (req, res) => {
 		return res.status(404).send(error.message);
 	}
 });
+
+userRouter.get('/users',async (req,res)=>{
+	try {
+		const users = await getAlluser();
+		return res.send(users);
+	} catch (error) {
+		return res.status(400).send(error);
+	}
+})
 
 userRouter.post('/user/github-signin', (req, res) => {});
 

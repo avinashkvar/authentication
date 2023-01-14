@@ -3,6 +3,8 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+
+
 function generateToken(user){
     if(user.password){
         delete user.password;
@@ -11,6 +13,10 @@ function generateToken(user){
     return jwt.sign(user, process.env.JWT_SECRET);
 }
 
+async function getAlluser(){
+	const users = await UserModel.find();
+	return users;
+}
 async function login({ email, password }) {
 	const user = await UserModel.findOne({ email: email, authType: 'email-password' });
     console.log(user);
@@ -54,4 +60,4 @@ async function register({ name, email, password }) {
 
 async function githubAuth(user) {}
 
-module.exports = { login, register, githubAuth };
+module.exports = { login, register, githubAuth,getAlluser };
