@@ -55,7 +55,7 @@ userRouter.get('/users',async (req,res)=>{
 })
 
 userRouter.get('/',(req,res)=>{
-	res.send('hello')
+	return res.send('hello')
 });
 
 userRouter.post('/user/github-signin', (req, res) => {});
