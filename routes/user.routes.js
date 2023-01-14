@@ -47,8 +47,8 @@ userRouter.post('/user/register', async (req, res) => {
 
 userRouter.get('/users',async (req,res)=>{
 	try {
-		const users = await getAlluser();
-		return res.send(users);
+		// const users = await getAlluser();
+		return res.send("users");
 	} catch (error) {
 		return res.status(400).send(error);
 	}
