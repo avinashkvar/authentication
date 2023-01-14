@@ -17,3 +17,5 @@ connect()
 }).catch((err)=>{
     console.error(err);
 })
+
+module.exports = app;
