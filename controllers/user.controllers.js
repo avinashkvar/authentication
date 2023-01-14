@@ -10,7 +10,7 @@ function generateToken(user){
         delete user.password;
     }
     
-    return jwt.sign(user, "authication_secret");
+    return jwt.sign(user, process.env.JWT_SECRET);
 }
 
 async function getAlluser(){
